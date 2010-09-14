@@ -4,8 +4,8 @@
 <div id="conteudo">
    <fieldset>
       <table  border="0" width="100%" cellspacing="1">
-        <th><font style="font-size: 7pt"> DEMANDA GERAL NA REDE: <%= Crianca.demanda_total.length %> crianças</font></th>
-        <th><font style="font-size: 7pt"> GERAL DE MATRICULAS NA REDE: <%= Crianca.matricula_total.length %> alunos</font></th>
+        <th><font style="font-size: 7pt" > DEMANDA GERAL NA REDE: <%= Crianca.demanda_total.length %> crianças</font></th>
+        <th><font style="font-size: 7pt" > GERAL DE MATRICULAS NA REDE: <%= Crianca.matricula_total.length %> alunos</font></th>
       </table>
    <fieldset>
       <legend><font size=3>DEMANDA POR REGIÃO</font></legend>
@@ -80,6 +80,8 @@
     </tr>
     <tr>
        <th align="left" style= "font-size: 7pt"> > WANDA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 51"]).length %></th>
+
+
     </tr>
   </table>
   </fieldset>
@@ -99,6 +101,10 @@
       <th align="left" style= "font-size: 7pt"> > PITANGA II: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 50 and grupo_id in (1,2,3,4,5)"]).length %></th>
       <th align="left" style= "font-size: 7pt"> > TAPERA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 25 and grupo_id in (1,2,3,4,5)"]).length %></th>
       <th align="left" style= "font-size: 7pt"> > WANDA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 51 and grupo_id in (1,2,3,4,5)"]).length %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th align="left" style= "font-size: 7pt"> <font color="red" > > TOTAL: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 in (15,52,7,16,23,24,17,50,25,51) and grupo_id in (1,2,3,4,5)"]).length %></font></th>
     </tr>
   </table>
   </fieldset>
@@ -130,31 +136,60 @@
         <th align="left" style= "font-size: 7pt"> > POTIRA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 18 and grupo_id in (6,7)"]).length %></th>
         <th align="left" style= "font-size: 7pt"> > SABIA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 38 and grupo_id in (6,7)"]).length %></th>
         <th align="left" style= "font-size: 7pt"> > TANGARA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 36 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"><font color="red" > TOTAL: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 in (30,12,6,37,21,33,10,34,35,13,31,20,22,5,11,29,19,18,38,36) and grupo_id in (6,7)"]).length %></font></th>
       </tr>
     </table>
   </fieldset>
   <fieldset>
    <legend><font size=3>DEMANDA CASA DA CRIANCA POR UNIDADE</font></legend>
-    <table border="0" width="120%" cellpadding="1" cellspacing="1">
+    <fieldset>
+    <legend><font size=3>CRECHE</font></legend>
+     <table border="0" width="120%" cellpadding="1" cellspacing="1">
       <tr>
-        <th align="left" style= "font-size: 7pt"> > ARAPIRANGA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 1 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > ARAUNA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 9 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > BITU: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 2 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > CURIO: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 26 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > GRAUNA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 8 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > JURITI: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 4 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > MAIRA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 3 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > ARAPIRANGA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 1 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > ARAUNA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 9 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > BITU: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 2 and grupo_id in (1,2,3,4,5,6)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > CURIO: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 26 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > GRAUNA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 8 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > JURITI: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 4 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > MAIRA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 3 and grupo_id in (1,2,3,4,5)"]).length %></th>
       </tr>
+      
+     <tr>
+        <th align="left" style= "font-size: 7pt"> > MANACA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 41 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > PANAMBY: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 40 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > PITANGA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 39 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > TARAGUA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 27 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > TAHIRA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 32 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > URUPE: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 28 and grupo_id in (1,2,3,4,5)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"><font color="red" > > TOTAL: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 in (1,9,2,26,8,4,3,41,40,39,27,32,28) and grupo_id in (1,2,3,4,5)"]).length %></font></th>
+      </tr>
+    </table>
+    </fieldset>
+    <fieldset>
+     <legend><font size=3>EMEI</font></legend>
+     <table border="0" width="120%" cellpadding="1" cellspacing="1">
       <tr>
-        <th align="left" style= "font-size: 7pt"> > MANACA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 41 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > PANAMBY: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 40 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > PITANGA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 39 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > TARAGUA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 27 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > TAHIRA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 32 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
-        <th align="left" style= "font-size: 7pt"> > URUPE: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 28 and grupo_id in (1,2,3,4,5,6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > ARAPIRANGA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 1 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > ARAUNA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 9 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > BITU: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 2 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > CURIO: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 26 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > GRAUNA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 8 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > JURITI: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 4 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > MAIRA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 3 and grupo_id in (6,7)"]).length %></th>
+     </tr>
+     <tr>
+        <th align="left" style= "font-size: 7pt"> > MANACA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 41 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > PANAMBY: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 40 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > PITANGA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 39 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > TARAGUA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 27 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > TAHIRA: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 32 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"> > URUPE: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 = 28 and grupo_id in (6,7)"]).length %></th>
+        <th align="left" style= "font-size: 7pt"><font color="red" > > TOTAL: <%= Crianca.find(:all, :conditions => ["matricula != 1 and option1 in (1,9,2,26,8,4,3,41,40,39,27,32,28) and grupo_id in (6,7)"]).length %></font></th>
       </tr>
     </table>
   </fieldset>
+ </fieldset>
 <fieldset>
   <legend><font size=3>DEMANDA ENTIDADES FILANTÓPICAS</font></legend>
    <table border="0" width="120%" cellpadding="1" cellspacing="1">
