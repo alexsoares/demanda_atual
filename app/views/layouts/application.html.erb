@@ -24,8 +24,6 @@ display: none;
 display: none;
 } 
 </style>
-
-
 </head>
 <body>
 <div id="alinha">
@@ -56,7 +54,6 @@ display: none;
                        <% if current_user.has_role?('escriturario') %>
                          Acesso escriturario de escola
                        <%end%>
-
                    <%end%>
                 <%end%>
               <%end%>
@@ -70,8 +67,6 @@ display: none;
       <td><%= link_to '|Entrar|', login_path %></td>
     <%end%>
     </table>
-
-
   <div class="menu-hv">
   <ul>
     <li><a>Arquivo</a>
@@ -115,17 +110,14 @@ display: none;
           <li><%= link_to "Gráficos", grafico_path %></li>
       </ul>
     </li>
-
       <li id="about"><%= link_to_remote('Sobre', :update => 'conteudo',:url => { :action => "sobresis", :controller => 'criancas'}) %></li>
      </ul>
   </div>
 </div>
 </div>
-<div id="content"><%= yield  %></div>
+<div id="content"><%=yield%></div>
 <div id="rodape">
   © 2009 . Prefeitura de Americana - SEDUC - Todos os Direitos Reservados.
 </div>
-
 </body>
-
 </html>

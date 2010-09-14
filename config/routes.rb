@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :unidades
 
-  map.resources :criancas
+  map.resources :criancas, :collection => {:relatorio => :get}
 
   map.resources :grupos
 

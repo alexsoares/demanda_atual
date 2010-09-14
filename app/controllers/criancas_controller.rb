@@ -406,7 +406,7 @@ HEREDOC
   end
 
   def relatorio
-    render :partial => 'relatorio_geral'
+    
   end
 
   def relatorio_impressao
