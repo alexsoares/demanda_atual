@@ -280,17 +280,29 @@ class CriancasController < ApplicationController
     contador7 = 0    
     for at_grupo in @atualiza_grupo
       dias = Date.today - at_grupo.nascimento
-      if (((0 >= dias) and (dias < 366)) and at_grupo.grupo_id != 1) then
+      if (((0 >= dias) and (dias < 425)) and at_grupo.grupo_id != 1) then
         contador = contador + 1
       else
-        if (((dias > 365) and (dias < 577)) and at_grupo.grupo_id != 2) then
+        if (((dias > 424) and (dias < 730)) and at_grupo.grupo_id != 2) then
           contador2 = contador2 + 1
         else
-          if (((dias > 576) and (dias < 851)) and at_grupo.grupo_id != 3) then
+          if (((dias > 729) and (dias < 912)) and at_grupo.grupo_id != 3) then
             contador3 = contador3 + 1
           else
-            if (((dias > 850) and (dias < 1096)) and at_grupo.grupo_id != 4) then
+            if (((dias > 911) and (dias < 1095)) and at_grupo.grupo_id != 4) then
               contador4 = contador4 + 1
+            else
+              if (((dias > 1094) and (dias < 1460)) and at_grupo.grupo_id != 5) then
+                contador5 = contador5 + 1
+              else
+                if (((dias > 1459) and (dias < 1825)) and at_grupo.grupo_id != 6) then
+                  contador6 = contador6 + 1
+                else
+                  if (((dias > 1824) and (dias < 2191)) and at_grupo.grupo_id != 7) then
+                    contador7 = contador7 + 1
+                  end
+                end
+              end
             end
           end
         end
@@ -310,9 +322,11 @@ class CriancasController < ApplicationController
     
     Para grupo BI serão realocado(s) <strong><font color="red">#{contador.to_s}</font></strong> criança(s).
     Para grupo BII serão realocado(s) <strong><font color="red">#{contador2.to_s}</font></strong> criança(s).
-    Para grupo BIII serão realocado(s) <strong><font color="red">#{contador3.to_s}</font></strong> criança(s).
-    Para grupo MI serão realocado(s)  <strong><font color="red">#{contador4.to_s}</font></strong> criança(s).
+    Para grupo MI(A) serão realocado(s) <strong><font color="red">#{contador3.to_s}</font></strong> criança(s).
+    Para grupo MI(B) serão realocado(s)  <strong><font color="red">#{contador4.to_s}</font></strong> criança(s).
     Para grupo MII serão realocado(s)  <strong><font color="red">#{contador5.to_s}</font></strong> criança(s).
+    Para grupo NI serão realocado(s)  <strong><font color="red">#{contador6.to_s}</font></strong> criança(s).
+    Para grupo NII serão realocado(s)  <strong><font color="red">#{contador7.to_s}</font></strong> criança(s).
     
 HEREDOC
     
