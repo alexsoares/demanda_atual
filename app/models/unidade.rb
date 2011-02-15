@@ -35,4 +35,8 @@ class Unidade < ActiveRecord::Base
     end
   end
 
+  def self.by_region(region)
+    search(region)
+  end
+
 end

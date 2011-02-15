@@ -106,6 +106,7 @@ display: none;
           <li><%= link_to "Crianças", relatorio_crianca_path %></li>
           <li><%= link_to "Unidades", unidades_path %></li>
           <li><%= link_to "Regiões", regiaos_path %></li>
+          <li><%= link_to "Unidade por Regiao", unit_by_region_regiaos_path %></li>
           <li><%= link_to "Grupos", grupos_path %></li>
           <li><%= link_to "Gráficos", grafico_path %></li>
       </ul>
@@ -116,8 +117,5 @@ display: none;
 </div>
 </div>
 <div id="content"><%=yield%></div>
-<div id="rodape">
-  © 2009 . Prefeitura de Americana - SEDUC - Todos os Direitos Reservados.
-</div>
 </body>
 </html>

@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :grupos
 
-  map.resources :regiaos
+  map.resources :regiaos, :collection => {:unit_by_region => :get}
 
   map.resources :regiaos
 

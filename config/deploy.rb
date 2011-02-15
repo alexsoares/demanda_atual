@@ -1,5 +1,5 @@
 set :application, "192.168.0.247"
-set :repository,  "alexandre@192.168.0.99:~/repos/demanda.git"
+set :repository,  "git://github.com/alexsoares/demanda_atual.git"
 
 set :user, "administrador"
 set :use_sudo, false

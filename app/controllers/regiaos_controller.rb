@@ -1,5 +1,7 @@
 class RegiaosController < ApplicationController
-require_role ["seduc","admin"]
+
+  require_role ["seduc","admin"]
+  before_filter :load_regiaos
   # GET /regiaos
   # GET /regiaos.xml
   def index
@@ -83,4 +85,21 @@ require_role ["seduc","admin"]
       format.xml  { head :ok }
     end
   end
+
+  def unit_by_region
+    @unit = Unidade.search(params[:search])
+    teste = params[:search]
+    if params[:search].present?
+      @unit = Unidade.by_region(params[:search])
+      if params[:search][:regiao_id_equals].nil?
+        @unit = Unidade.all(:include => "regiao")
+      end
+    end
+  end
+
+  def load_regiaos
+    @regiaos = Regiao.all
+    
+  end
+
 end

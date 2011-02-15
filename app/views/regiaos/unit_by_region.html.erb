@@ -1,0 +1,21 @@
+    <div class="botao">
+        <table width="100%">
+          <tr>
+            <% form_for @unit do |f| %>
+              <tr>
+                <td align="right" width="95%"><font size="3">
+                  <%= f.label :regiao_id_equals, "Regiao:" %>
+                  <%= f.collection_select :regiao_id_equals, @regiaos, :id, :nome, :include_blank => "TODOS"%></font>
+                </td>
+                <td align="left">
+                  <%= f.submit "Buscar" %>
+                </td>
+              </tr>
+            <% end %>
+          </tr>
+        </table>
+    </div>
+    <%if params[:search].present? %>
+      <%= render "unit_by_region" %>
+    <%end%>
+

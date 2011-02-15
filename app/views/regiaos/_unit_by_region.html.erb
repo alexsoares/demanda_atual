@@ -1,0 +1,41 @@
+<style media="print">
+  .botao
+  {
+    display: none;
+  }
+</style>
+    <input type="Button" Value="Imprimir" onclick="Imprimir()">
+
+  
+  <%if (params[:search][:regiao_id_equals]).present?%>
+    <% unidade = Regiao.find(params[:search][:regiao_id_equals]).nome %>
+  <%else%>
+    <% unidade = "Todos" %>
+  <%end%>
+    <fieldset>
+     <legend><font size=4>Região: <%= unidade %></font></legend>
+      <table border ="1" cellpadding="5" cellspacing="1" width="100%" >
+
+        <tr>
+          <%unless (params[:search][:regiao_id_equals]).present?%>
+            <th colspan="2" bgcolor="gray" align="left">Nome</th>
+            <th colspan="1" bgcolor="gray" align="left">Região</th>
+          <%else%>
+            <th colspan="3" bgcolor="gray" align="left">Nome</th>
+          <%end%>
+        </tr>
+
+        <% for unit in @unit %>
+         <tr>
+          <%unless (params[:search][:regiao_id_equals]).present?%>
+            <td colspan="2"><%=h unit.nome %></td>
+            <td colspan="1"><%=h unit.regiao.nome %></td>
+          <%else%>
+            <td colspan="3"><%=h unit.nome %></td>
+          <%end%>
+
+         </tr>
+        <% end %>
+      </table>
+     </fieldset>
+  

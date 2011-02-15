@@ -82,6 +82,7 @@ end
 
 ActionMailer::Base.default_content_type = "text/html"
 ActionMailer::Base.smtp_settings = {
+   :enable_starttls_auto => true,
    :address => "smtp.gmail.com",
    :port => 587,
    :authentication => :plain,
