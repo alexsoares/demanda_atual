@@ -1,9 +1,9 @@
-set :application, "192.168.0.247"
+set :application, "187.35.111.69"
 set :repository,  "git://github.com/alexsoares/demanda_atual.git"
 
-set :user, "administrador"
+set :user, "servidor"
 set :use_sudo, false
-set :deploy_to, "/home/#{user}/demanda_new_version"
+set :deploy_to, "/home/#{user}/demanda.seducpma.com"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -11,7 +11,7 @@ set :scm, :git
 server application, :app, :web, :db, :primary => true
 
 after "deploy:update_code", "deploy:custom_symlinks"
-#after "deploy:symlink", "deploy:update_crontab"
+after "deploy:symlink", "deploy:update_crontab"
 
 
  namespace :deploy do
