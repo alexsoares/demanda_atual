@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :unidades
 
-  map.resources :criancas, :collection => {:relatorio => :get, :total_geral => :get}
+  map.resources :criancas, :collection => {:relatorio => :get, :total_geral => :get, :possuem_matricula => :get, :sem_matricula => :get, :desistiram_vaga => :get}, :member => { :desistencia => :get}
 
   map.resources :grupos
 

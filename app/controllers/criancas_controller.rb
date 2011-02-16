@@ -31,6 +31,22 @@ class CriancasController < ApplicationController
     render :action => 'relatorio_crianca'
   end
 
+  def search_matriculados
+    if params[:type] == "sem_matricula"
+      @crianca = Crianca.b_dm(params[:search])
+    else
+      if params[:type] == "matriculado"
+        @crianca = Crianca.b_u(params[:search])
+      else
+        if params[:type] == "desistencia"
+          @crianca = Crianca.desistiram(params[:search])
+        end
+      end
+    end
+    render :action => 'possuem_matricula'
+  end
+
+
 
   # GET /criancas/1
   # GET /criancas/1.xml
@@ -96,7 +112,11 @@ class CriancasController < ApplicationController
     respond_to do |format|
       if @crianca.update_attributes(params[:crianca])
         flash[:notice] = 'Criança atualizada com sucesso.'
-        format.html { redirect_to(@crianca) }
+        if @crianca.desistiu == true then
+          format.html { redirect_to desistencia_crianca_path(:id => @crianca.id) }
+        else
+          format.html { redirect_to(@crianca) }
+        end
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -142,6 +162,21 @@ class CriancasController < ApplicationController
     end
   end
 
+  def possuem_matricula
+    @crianca = Crianca.b_u
+  end
+
+  def desistiram_vaga
+    @crianca = Crianca.desistiram
+  end
+  
+  def sem_matricula
+    @crianca = Crianca.b_dm
+  end
+
+  def desistencia
+    @crianca = Crianca.find(params[:id])
+  end
 
   def versao_impressao_todas
     #Busca demanda por unidade
@@ -261,7 +296,7 @@ class CriancasController < ApplicationController
   def classif
     $unidade = params[:unidade_unidade_class_id]
     $consulta = 4
-    @crianca = Crianca.find(:all, :conditions => ["grupo_id = " + $class + " and option1 = " + $unidade + " and matricula != 1"], :order => "servidor_publico desc, transferencia desc, gemelar desc, created_at")
+    @crianca = Crianca.find(:all, :conditions => ["grupo_id = " + $class + " and option1 = " + $unidade + " and matricula != 1 or desistiu != 1"], :order => "servidor_publico desc, transferencia desc, gemelar desc, created_at")
     if @crianca.nil? or @crianca.empty? then
       render :text => 'Nenhuma crianca encontrada'
     else
@@ -367,7 +402,7 @@ HEREDOC
     $consulta = 1
     $unidade_op1_id = params[:unidade_unidade_op1_id]
        
-    @crianca = Crianca.find(:all, :conditions => ["option1 = "+ $unidade_op1_id + " and matricula != 1"], :order =>("servidor_publico desc, transferencia desc, created_at"))
+    @crianca = Crianca.find(:all, :conditions => ["option1 = "+ $unidade_op1_id + " and matricula != 1 or desistiu != 1"], :order =>("servidor_publico desc, transferencia desc, created_at"))
     if @crianca.nil? or @crianca.empty? then
       render :text => 'Nenhum registro encontrado'
     else      

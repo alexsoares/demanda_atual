@@ -54,12 +54,29 @@ class Crianca < ActiveRecord::Base
     Crianca.find(:all, :conditions => ["matricula != 0"])
   end
 
-  def self.b_u
-    Crianca.find(:all, :conditions => {:matricula => 1 })
+  def self.b_u(nome = "")
+    unless nome == ""
+      Crianca.find(:all, :conditions => ["matricula = 1 and nome like ?", "%" + nome.to_s + "%"], :include => ['grupo','unidade'])
+    else
+      Crianca.find(:all, :conditions => {:matricula => 1 }, :include => ['grupo','unidade'])
+    end
   end
 
-   def self.b_dm
-    Crianca.find(:all, :conditions => {:matricula => 0 })
+  def self.desistiram(nome = "")
+    unless nome == ""
+      Crianca.find(:all, :conditions => ["desistiu = 1 and nome like ?", "%" + nome.to_s + "%"], :include => ['grupo','unidade'])
+    else
+      Crianca.find(:all, :conditions => {:desistiu => 1 }, :include => ['grupo','unidade'])
+    end
+  end
+
+
+  def self.b_dm(nome = "")
+    unless nome == ""
+      Crianca.find(:all, :conditions => ["matricula = 0 and desistiu = 0 and nome like ?", "%" + nome.to_s + "%"], :include => ['grupo','unidade'])
+    else
+      Crianca.find(:all, :conditions => ["matricula = 0 and desistiu = 0"], :include => ['grupo','unidade'])
+    end
   end
 
   def self.busca_op1

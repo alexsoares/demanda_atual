@@ -7,6 +7,9 @@ a:hover {
   color:blue;
   background-color:gray;
 }
+#est a:visited  { color: yellow;}
+#est a  { color: yellow;}
+#est a:hover  { color: blue; background-color:gray;}
 #topo {
 background-image:url(images/americana_titulo.jpg);
 background-repeat: no-repeat;
@@ -160,7 +163,7 @@ color: green;
 
 #estatistica{
   position: absolute;
-  left: 923px;
+  left: 800px;
    top: 136px;
   }
 
@@ -213,7 +216,7 @@ color: green;
 .menu-hv li:hover ul ul, .menu-hv li.over ul ul { visibility: hidden;}
 .menu-hv ul ul li:hover ul, .menu-hv ul ul li.over ul { visibility: visible;}
  /* visual */
-.menu-hv {  background:black repeat-x top;width: 1233px;  margin: 0 0 0 0; height: 28px;}
+.menu-hv {  background:black repeat-x top;width: 770px;  margin: 0 0 0 0; height: 28px;}
 .menu-hv a { font-weight: bold;  text-decoration: none; color: #FFF; padding: 0 10px; line-height: 23px;}
 .menu-hv a:hover { text-decoration:  underline; background-color: #000; color: #FFF;}
 .menu-hv ul li ul {  background-color: #B0C4DE; border: 1px solid #000; }

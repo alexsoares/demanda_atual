@@ -1,7 +1,7 @@
 *					{ margin: 0; padding: 0; }
 body	{ 
         background: url(images/login-page-bg.jpg) left no-repeat #c4c4c4;
-        background-position: 150px  50px;
+        background-position: 110px  50px;
         color: #3a3a3a;  }
 
 form            {  width: 406px; margin: 48px auto 0; }
@@ -19,7 +19,7 @@ button				{ width: 200px; padding: 3px; margin: 0 0 10px 0; font-size: 15px;
 					  color: #3a3a3a; font-family: Arial;}
 #position {
   position: relative;
-  left:710px;
+  left:670px;
   top: 230px;
 
 }

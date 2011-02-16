@@ -16,14 +16,19 @@ display: none;
 	  <h6><b>Estatísticas</b></h6>
 	</div>
     <div class="conteudo">
-		<p><font size=3>Crianças Cadastradas</font>
-		<font size=3><%= Crianca.c.length %></font></p>
+      <div id="est">
+		<p><font size=2>Crianças Cadastradas</font>
+		<font size=2><%= link_to Crianca.c.length, relatorio_crianca_path %></font></p>
 
-   		<p><font size=3>Crianças Matriculadas</font>
-		<font size=3><%= Crianca.b_u.length %></font></p>
+   		<p><font size=2>Crianças Matriculadas</font>
+		<font size=2><%= link_to Crianca.b_u.length, possuem_matricula_criancas_path %></font></p>
 
-		<p><font size=3>Crianças Não Matriculadas</font>
-		<font size=3><%= Crianca.b_dm.length %></font></p>
+		<p><font size=2>Crianças Não Matriculadas</font>
+		<font size=2><%= link_to Crianca.b_dm.length,sem_matricula_criancas_path %></font></p>
+
+        <p><font size=2>Crianças Que desistiram</font>
+		<font size=2><%= link_to Crianca.desistiram.length, desistiram_vaga_criancas_path %></font></p>
+      </div>
 	</div>
 </div>
 </div>
