@@ -1,6 +1,5 @@
 set :application, "187.35.111.69"
 set :repository,  "git://github.com/alexsoares/demanda_atual.git"
-
 set :user, "servidor"
 set :use_sudo, false
 set :deploy_to, "/home/#{user}/demanda.seducpma.com"

@@ -296,7 +296,7 @@ class CriancasController < ApplicationController
   def classif
     $unidade = params[:unidade_unidade_class_id]
     $consulta = 4
-    @crianca = Crianca.find(:all, :conditions => ["grupo_id = " + $class + " and option1 = " + $unidade + " and matricula != 1 or desistiu != 1"], :order => "servidor_publico desc, transferencia desc, gemelar desc, created_at")
+    @crianca = Crianca.find(:all, :conditions => ["grupo_id = " + $class + " and option1 = " + $unidade + " and (matricula != 1 and desistiu != 1)"], :order => "servidor_publico desc, transferencia desc, gemelar desc, created_at")
     if @crianca.nil? or @crianca.empty? then
       render :text => 'Nenhuma crianca encontrada'
     else
@@ -402,7 +402,7 @@ HEREDOC
     $consulta = 1
     $unidade_op1_id = params[:unidade_unidade_op1_id]
        
-    @crianca = Crianca.find(:all, :conditions => ["option1 = "+ $unidade_op1_id + " and matricula != 1 or desistiu != 1"], :order =>("servidor_publico desc, transferencia desc, created_at"))
+    @crianca = Crianca.find(:all, :conditions => ["option1 = "+ $unidade_op1_id + " and matricula != 1 and desistiu != 1"], :order =>("servidor_publico desc, transferencia desc, created_at"))
     if @crianca.nil? or @crianca.empty? then
       render :text => 'Nenhum registro encontrado'
     else      
